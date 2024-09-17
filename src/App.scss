@@ -11,34 +11,52 @@ body {
   color: white;
 }
 
+#root {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+}
 
-  /* Marquee styles */
+/* Marquee styles */
 .marquee {
-    --gap: 1rem;
-    position: relative;
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-    gap: 1rem;
-  }
-  
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 1rem;
   .marquee__content {
     flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     gap: 1rem;
     min-width: 100%;
-    animation: scroll 10s linear infinite;
   }
-  
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - 1rem));
+  &:nth-of-type(even) {
+    .marquee__content {
+      animation: scroll 10s linear infinite;
     }
   }
+  &:nth-of-type(odd) {
+    .marquee__content {
+      animation: scroll 10s linear infinite reverse;
+    }
+  }
+}
 
+ul {
+  list-style-type: none;
+  li {
+    border: 2px solid red;
+    padding: 2rem;
+  }
+}
 
-  
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
