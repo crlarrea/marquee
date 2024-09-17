@@ -25,12 +25,21 @@ body {
   overflow: hidden;
   user-select: none;
   gap: 1rem;
+  transform-style: preserve-3d;
+      transform: rotateZ(15deg);
   .marquee__content {
     flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     gap: 1rem;
     min-width: 100%;
+    div {
+      background-color: red;
+      padding: 2rem;
+      perspective: (500px);
+      
+    
+    }
   }
   &:nth-of-type(even) {
     .marquee__content {
@@ -41,14 +50,6 @@ body {
     .marquee__content {
       animation: scroll 10s linear infinite reverse;
     }
-  }
-}
-
-ul {
-  list-style-type: none;
-  li {
-    border: 2px solid red;
-    padding: 2rem;
   }
 }
 

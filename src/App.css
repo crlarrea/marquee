@@ -25,6 +25,8 @@ body {
   overflow: hidden;
   user-select: none;
   gap: 1rem;
+  transform-style: preserve-3d;
+  transform: rotateZ(15deg);
 }
 .marquee .marquee__content {
   flex-shrink: 0;
@@ -33,19 +35,16 @@ body {
   gap: 1rem;
   min-width: 100%;
 }
+.marquee .marquee__content div {
+  background-color: red;
+  padding: 2rem;
+  perspective: 500px;
+}
 .marquee:nth-of-type(even) .marquee__content {
   animation: scroll 10s linear infinite;
 }
 .marquee:nth-of-type(odd) .marquee__content {
   animation: scroll 10s linear infinite reverse;
-}
-
-ul {
-  list-style-type: none;
-}
-ul li {
-  border: 2px solid red;
-  padding: 2rem;
 }
 
 @keyframes scroll {
